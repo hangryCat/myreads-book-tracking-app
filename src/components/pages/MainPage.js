@@ -1,4 +1,7 @@
 import React from 'react';
+// This component provides declarative, accessible navigation around the app
+// The TO property within the LINK tag will be the path we want to link to
+import { Link } from 'react-router-dom';
 
 class MainPage extends React.Component {
   render () {
@@ -159,7 +162,7 @@ class MainPage extends React.Component {
           </div>
         </div>
         <div className="open-search">
-          <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+          <Link to="/search">Add a book</Link>
         </div>
       </div>
     );
