@@ -8,11 +8,25 @@ import * as BooksAPI from '../../BooksAPI'
 import Shelf from '../Shelf';
 
 class MainPage extends React.Component {
+  // To have some starting books state (read, want to read, etc.)
+  constructor(props) {
+    // The super keyword is used to access and call functions on an object's parent
+    // When used in a constructor,
+      // the super keyword appears alone
+      // and must be used before the this keyword is used
+    super(props);
+    this.state = {
+      books: []
+    }
+  }
   // This method will help load all currently reading books
   componentDidMount() {
     BooksAPI.getAll()
       .then(resp => {
         console.log(resp);
+        // Add the resp(onse) to component state which is an array of bookshelf
+        // When setState is called, it'll force a rerender; render() runs again
+        this.setState({ books: resp });
       });
   }
 
